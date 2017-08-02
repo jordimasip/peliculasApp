@@ -11,8 +11,22 @@ export class PeliculasService {
 
   constructor(private jsonp:Jsonp) { }
 
+  getCartelera() {
+    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=2017-07-01&primary_release_date.lte=2017-07-15&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
+
+    return this.jsonp.get(url)
+            .map( res => res.json());
+  }
+
   getPopulares() {
     let url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
+
+    return this.jsonp.get(url)
+            .map( res => res.json());
+  }
+
+  getPequenos() {
+    let url = `${this.urlMoviedb}/discover/movie?certification_country=ES&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
             .map( res => res.json());
