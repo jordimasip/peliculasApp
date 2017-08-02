@@ -12,7 +12,15 @@ export class PeliculasService {
   constructor(private jsonp:Jsonp) { }
 
   getCartelera() {
-    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=2017-07-01&primary_release_date.lte=2017-07-15&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
+
+    let desde = new Date();
+    let hasta = new Date();
+    hasta.setDate(hasta.getDate() + 7);
+
+    let desdeStr = `${desde.getFullYear()}-${desde.getMonth()+1}-${desde.getDate()}`;
+    let hastaStr = `${hasta.getFullYear()}-${hasta.getMonth()+1}-${hasta.getDate()}`
+
+    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
             .map( res => res.json());
