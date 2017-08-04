@@ -10,7 +10,7 @@ import { PeliculasService } from "../../services/peliculas.service";
 })
 export class HomeComponent implements OnInit {
 
-  cartelera:any[];
+  cartelera:any;
   populares:any[];
   pequenos:any[];
 
@@ -18,19 +18,19 @@ export class HomeComponent implements OnInit {
     this._ps.getCartelera()
         .subscribe(data => {
           console.log("mostra resposta cartelera ",data.results);
-          this.cartelera = data.results;
+          this.cartelera = data;
         });
 
     this._ps.getPopulares()
         .subscribe(data => {
           console.log("mostra resposta populares ",data.results);
-          this.populares = data.results;
+          this.populares = data;
         });
 
     this._ps.getPequenos()
         .subscribe(data => {
           console.log("mostra resposta pequenos ",data.results);
-          this.pequenos = data.results;
+          this.pequenos = data;
         });
   }
 

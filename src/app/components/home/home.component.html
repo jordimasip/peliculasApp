@@ -8,11 +8,12 @@
 
   <h1>Peliculas en cartelera</h1>
 
-  <div class="row">
+  <div class="row" *ngIf="cartelera">
     <div class="col-sm-6">
+
       <div class="row">
         <div class="col-md-12 div-pic-1"
-              [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
+              [ngStyle]="{ 'background-image': 'url( '+ ( cartelera[0] | peliculaImagen ) +')'}">
         </div>
       </div>
       <div class="row">
@@ -46,6 +47,13 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+
+  
 
   <div class="card-group">
     <div *ngFor="let k of cartelera | keys; let i = index;" class="card card-inverse">

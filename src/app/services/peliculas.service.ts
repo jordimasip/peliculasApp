@@ -23,21 +23,21 @@ export class PeliculasService {
     let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
-            .map( res => res.json());
+            .map( res => res.json().results);
   }
 
   getPopulares() {
     let url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
-            .map( res => res.json());
+            .map( res => res.json().results);
   }
 
   getPequenos() {
     let url = `${this.urlMoviedb}/discover/movie?certification_country=ES&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
-            .map( res => res.json());
+            .map( res => res.json().results);
   }
 
   buscarPelicula(texto:string) {

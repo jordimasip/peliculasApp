@@ -13,7 +13,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
+
+// pipes
 import { KeysPipe } from './pipes/keys.pipe';
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { KeysPipe } from './pipes/keys.pipe';
     HomeComponent,
     SearchComponent,
     PeliculaComponent,
-    KeysPipe
+    KeysPipe,
+    PeliculaImagenPipe
   ],
   imports: [
     BrowserModule,
