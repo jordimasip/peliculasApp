@@ -17,6 +17,7 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 // pipes
 import { KeysPipe } from './pipes/keys.pipe';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleriaComponent } from './components/home/galeria.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
     SearchComponent,
     PeliculaComponent,
     KeysPipe,
-    PeliculaImagenPipe
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

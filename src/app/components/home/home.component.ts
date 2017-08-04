@@ -11,27 +11,18 @@ import { PeliculasService } from "../../services/peliculas.service";
 export class HomeComponent implements OnInit {
 
   cartelera:any;
-  populares:any[];
-  pequenos:any[];
+  populares:any;
+  pequenos:any;
 
   constructor(private _ps:PeliculasService) {
     this._ps.getCartelera()
-        .subscribe(data => {
-          console.log("mostra resposta cartelera ",data.results);
-          this.cartelera = data;
-        });
+        .subscribe(data => this.cartelera = data);
 
     this._ps.getPopulares()
-        .subscribe(data => {
-          console.log("mostra resposta populares ",data.results);
-          this.populares = data;
-        });
+        .subscribe(data => this.populares = data);
 
     this._ps.getPequenos()
-        .subscribe(data => {
-          console.log("mostra resposta pequenos ",data.results);
-          this.pequenos = data;
-        });
+        .subscribe(data => this.pequenos = data);
   }
 
   ngOnInit() {

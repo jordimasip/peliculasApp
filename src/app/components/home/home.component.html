@@ -6,105 +6,13 @@
 <div class="container">
   <br>
 
-  <h1>Peliculas en cartelera</h1>
+  <app-galeria [peliculas]="cartelera|slice:0:6"
+                titulo="Películas en cartelera"></app-galeria>
 
-  <div class="row" *ngIf="cartelera">
-    <div class="col-sm-6">
+  <app-galeria [peliculas]="populares|slice:0:6"
+                titulo="Películas populares"></app-galeria>
 
-      <div class="row">
-        <div class="col-md-12 div-pic-1"
-              [ngStyle]="{ 'background-image': 'url( '+ ( cartelera[0] | peliculaImagen ) +')'}">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 div-pic-2"
-            [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
-
-        </div>
-        <div class="col-sm-6 div-pic-2"
-            [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-sm-6 div-pic-2"
-            [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
-
-        </div>
-        <div class="col-sm-6 div-pic-2"
-            [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12 div-pic-1"
-              [ngStyle]="{ 'background-image': 'url(http://image.tmdb.org/t/p/w300/u2Mw9iR1sWEq3x2HPT40G4MHDRQ.jpg)'} ">
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-  
-
-  <div class="card-group">
-    <div *ngFor="let k of cartelera | keys; let i = index;" class="card card-inverse">
-      <img class="card-img" src="http://image.tmdb.org/t/p/w300/{{ cartelera[k].poster_path }}">
-      <div class="card-img-overlay">
-        <h4 class="card-title">{{ cartelera[k].title }}</h4>
-        <button [routerLink]="['pelicula', cartelera[k].id, 'home']"
-                class="btn btn-primary"
-                type="button" name="button">Ir</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Populares</h1>
-      <hr>
-
-      <div class="card-group">
-        <div
-            *ngFor="let k of populares | keys; let i = index;"
-            class="card card-inverse">
-          <img class="card-img" src="http://image.tmdb.org/t/p/w300/{{ populares[k].poster_path }}">
-          <div class="card-img-overlay">
-            <h4 class="card-title">{{ populares[k].title }}</h4>
-            <button [routerLink]="['pelicula', populares[k].id, 'home']"
-                    class="btn btn-primary"
-                    type="button" name="button">Ir</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Populares entre los más pequeños</h1>
-      <hr>
-      <div class="card-group">
-        <div *ngFor="let k of pequenos | keys; let i = index;" class="card card-inverse">
-          <img class="card-img" src="http://image.tmdb.org/t/p/w300/{{ pequenos[k].poster_path }}">
-          <div class="card-img-overlay">
-            <h4 class="card-title">{{ pequenos[k].title }}</h4>
-            <button [routerLink]="['pelicula', pequenos[k].id, 'home']"
-                    class="btn btn-primary"
-                    type="button" name="button">Ir</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-galeria [peliculas]="pequenos|slice:0:6"
+                titulo="Películas entre los más pequeños"></app-galeria>
 
 </div>
